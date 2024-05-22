@@ -1,82 +1,34 @@
 package com.alura.screenmatch.models;
 
-public class Pelicula {
-    private String nombre;
-    private int fechaDeLanzamiento;
-    private int duracion;
-    private boolean incluidoEnElPlan;
+import com.alura.screenmatch.calculos.Clasificacion;
 
-    private double valorEvaluaciones;
-    private int cantidadEvaluaciones;
-
-    //Builder
-
-    //Getter&Setter
+public class Pelicula extends Titulo implements Clasificacion {
 
 
-    public String getNombre() {
-        return nombre;
+    public String director;
+
+    public Pelicula(String nombre, int fechaDeLanzamiento) {
+        super(nombre, fechaDeLanzamiento);
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public String getDirector() {
+        return director;
     }
 
-    public int getFechaDeLanzamiento() {
-        return fechaDeLanzamiento;
-    }
-
-    public void setFechaDeLanzamiento(int fechaDeLanzamiento) {
-        this.fechaDeLanzamiento = fechaDeLanzamiento;
-    }
-
-    public int getDuracion() {
-        return duracion;
-    }
-
-    public void setDuracion(int duracion) {
-        this.duracion = duracion;
-    }
-
-    public boolean isIncluidoEnElPlan() {
-        return incluidoEnElPlan;
-    }
-
-    public void setIncluidoEnElPlan(boolean incluidoEnElPlan) {
-        this.incluidoEnElPlan = incluidoEnElPlan;
-    }
-
-    public double getValorEvaluaciones() {
-        return valorEvaluaciones;
-    }
-
-    public void setValorEvaluaciones(double valorEvaluaciones) {
-        this.valorEvaluaciones = valorEvaluaciones;
-    }
-
-    public int getCantidadEvaluaciones() {
-        return cantidadEvaluaciones;
-    }
-
-    public void setCantidadEvaluaciones(int cantidadEvaluaciones) {
-        this.cantidadEvaluaciones = cantidadEvaluaciones;
+    public void setDirector(String director) {
+        this.director = director;
     }
 
     @Override
+    public int getClasificacion() {
+        return (int) (calcularMedia()/2);
+    }
+    @Override
     public String toString() {
 
-        return "Nombre= '" + nombre + '\'' +
-                "\nFecha de lanzamiento= " + fechaDeLanzamiento +
-                "\nDuracion= " + duracion + "minutos" +
-                "\nIncluido en el plan= " + incluidoEnElPlan;
-    }
-
-    public void evaluar(double nota){
-        valorEvaluaciones += nota;
-        cantidadEvaluaciones++;
-    }
-
-    public double calcularMedia(){
-        return valorEvaluaciones / cantidadEvaluaciones;
+        return "Nombre= '" + this.getNombre() + '\'' +
+                "\nFecha de lanzamiento= " + this.getClasificacion() +
+                "\nDuracion= " + this.getDuracion() + " minutos" +
+                "\nIncluido en el plan= " + this.isIncluidoEnElPlan();
     }
 }
