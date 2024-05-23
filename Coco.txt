@@ -1,3 +1,0 @@
-Titulo: Coco
-FechaDeLanzamiento: 2017
-Duración: 105

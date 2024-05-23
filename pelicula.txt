@@ -1,2 +1,0 @@
-Titulo: Constantine
-FechaDeLanzamiento: 2005

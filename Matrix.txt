@@ -1,2 +1,0 @@
-Titulo: Matrix
-FechaDeLanzamiento: 1993
